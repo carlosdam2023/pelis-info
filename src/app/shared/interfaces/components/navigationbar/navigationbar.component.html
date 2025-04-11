@@ -1,0 +1,28 @@
+<div class="navbar bg-base-100 shadow-sm fixed top-0 left-0 w-full z-10 {{ animation() }}">
+    <div class="flex-1">
+      <h1 class="text-lg font-bold text-bold px-4">Pelis Info</h1>
+    </div>
+    <div class="flex-none">
+        <h3 class="text-lg font-bold text-bold px-4"> </h3>
+        @if(authService.authStatus() == 'authenticated'){
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                  <div class="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src="https://imgs.search.brave.com/RHpYJTKMaQN1BslC5cWWAv_YsIRFk7zEoLFNvBecqQw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdHls/ZXMucmVkZGl0bWVk/aWEuY29tL3Q1XzJx/aDRhL3N0eWxlcy9j/b21tdW5pdHlJY29u/XzdrZWNkNHVmNGEz/YzEucG5n" />
+                  </div>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                  <li>
+                    <a class="justify-between">
+                            {{ authService.user()?.username }}
+                    </a>
+                  </li>
+                    <li><a (click)="authService.logout()" >Logout</a></li>                    
+                </ul>
+              </div>
+        }
+      
+    </div>
+  </div>
