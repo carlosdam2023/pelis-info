@@ -10,11 +10,15 @@ enum ErrorMessages { NotEnoughData, PasswordsDontMatch, EmailInvalid, None }
 
 const errorTypes = {
     'NotEnoughData' : 'Faltan datos o no se han completado todos los campos',
-    'PasswordsDontMatch' : 'Las contraseñas no coinciden', 
-    'EmailInvalid' : 'Email inválido', 
+    'PasswordsDontMatch' : 'Las contraseñas no coinciden',
+    'EmailInvalid' : 'Email inválido',
     'ServerError' : 'Fallo interno del servidor de datos'
 };
 
+/**
+ * Componente register menu encargado de gestionar el formulario de registro.
+ * @author Carlos García Mora
+ */
 @Component({
     selector: 'register-menu',
     imports:[ReactiveFormsModule],
@@ -38,6 +42,11 @@ export class RegisterMenu {
     authService = inject(AuthService);
     router = inject(Router);
 
+    /**
+     * Método encargado de recoger los datos del formulario,
+     * verificarlos y enviarlos al servicio de autenticación.
+     * @author Carlos García Mora
+     */
     onSubmit(){
         console.log(this.errorMessage())
         const{ username = '', password = '' , email = '', passwordConfirm = ''} = this.registerForm.value;
@@ -80,6 +89,7 @@ export class RegisterMenu {
 
     /**
      * Función para validar el formato de un email
+     * @author Carlos García Mora
      * @param email Email a validar
      * @returns Booleano que indica si el email es válido o no
      */
@@ -88,6 +98,10 @@ export class RegisterMenu {
         return re.test(email);
     }
 
+    /**
+     * Método que activa la animación de error.
+     * @author Carlos García Mora
+     */
     activateError(){
         this.hasError.set(true);
             setTimeout(() => {

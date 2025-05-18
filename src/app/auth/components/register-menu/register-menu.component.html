@@ -1,14 +1,14 @@
-
+<!--Formulario de registro -->
 <form class="min-h-screen bg-base-200 flex items-center justify-center" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="card w-96 bg-base-100 shadow-xl animate__animated animate__backInLeft">
         <div class="card-body">
             <h2 class="card-title justify-center">Registrar una cuenta</h2>
-                
+
                 <div class="form-control">
                     <label class="label">
                     <span class="label-text">Correo electrónico</span>
                     </label>
-                    <input type="text" placeholder="Email" name="email" class="input input-bordered" required 
+                    <input type="text" placeholder="Email" name="email" class="input input-bordered" required
                     formControlName="email"/>
                 </div>
 
@@ -16,7 +16,7 @@
                     <label class="label">
                     <span class="label-text">Nombre de usuario</span>
                     </label>
-                    <input type="text" placeholder="Nombre de usuario" name="username" class="input input-bordered" required 
+                    <input type="text" placeholder="Nombre de usuario" name="username" class="input input-bordered" required
                     formControlName="username"/>
                 </div>
 
@@ -24,7 +24,7 @@
                     <label class="label">
                       <span class="label-text">Contraseña</span>
                     </label>
-                    <input type="password" placeholder="••••••••" name="password" class="input input-bordered" required 
+                    <input type="password" placeholder="••••••••" name="password" class="input input-bordered" required
                     formControlName="password"/>
                 </div>
 
@@ -32,7 +32,7 @@
                     <label class="label">
                       <span class="label-text">Repetir contraseña</span>
                     </label>
-                    <input type="password" placeholder="••••••••" name="passwordConfirm" class="input input-bordered" required 
+                    <input type="password" placeholder="••••••••" name="passwordConfirm" class="input input-bordered" required
                     formControlName="passwordConfirm"/>
                 </div>
 

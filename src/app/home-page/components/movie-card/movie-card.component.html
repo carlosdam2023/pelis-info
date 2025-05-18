@@ -1,0 +1,18 @@
+<!--Estructura de tarjeta para peliculas.-->
+<div class="card card-side bg-base-100 shadow-sm">
+
+    <figure>
+      <img
+        src="{{ getPosterUrl(movie()?.poster_path) }}"
+        alt="Movie" />
+    </figure>
+
+
+  <div class="card-body">
+    <h2 class="card-title">{{ movie()?.title }}</h2>
+    <p>{{ genres() }}</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary" (click)="navigateDetail( movie()?.id!)">Ver más</button>
+    </div>
+  </div>
+</div>

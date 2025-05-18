@@ -1,14 +1,14 @@
-
+<!-- Página para hacer login-->
 <form class="min-h-screen bg-base-200 flex items-center justify-center" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="card w-96 bg-base-100 shadow-xl {{ animation() }}">
         <div class="card-body">
             <h2 class="card-title justify-center">Iniciar sesión</h2>
-                
+
                 <div class="form-control">
                     <label class="label">
                     <span class="label-text">Nombre de usuario</span>
                     </label>
-                    <input type="text" placeholder="Nombre de usuario" name="username" class="input input-bordered" required 
+                    <input type="text" placeholder="Nombre de usuario" name="username" class="input input-bordered" required
                     formControlName="username"/>
                 </div>
 
@@ -16,7 +16,7 @@
                     <label class="label">
                       <span class="label-text">Contraseña</span>
                     </label>
-                    <input type="password" placeholder="••••••••" name="password" class="input input-bordered" required 
+                    <input type="password" placeholder="••••••••" name="password" class="input input-bordered" required
                     formControlName="password"/>
                 </div>
 
@@ -36,7 +36,7 @@
                 <h3 class="flex items-center justify-center hover:text-accent cursor-pointer" routerLink="/register">
                     ¿Aún no tienes cuenta?
                   </h3>
-                  
+
         </div>
     </div>
 </form>

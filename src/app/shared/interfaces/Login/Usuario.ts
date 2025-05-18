@@ -1,3 +1,7 @@
+/**
+ * Interfaz que representa un usuario.
+ * @author Carlos García Mora
+ */
 export interface Usuario {
     id:       number;
     username: string;

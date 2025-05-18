@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavigationBar } from './shared/interfaces/components/navigationbar/navigationbar.component';
+import { NavigationBar } from './shared/navigationbar/navigationbar.component';
 import { AuthService } from './auth/services/auth.service';
 
 @Component({
