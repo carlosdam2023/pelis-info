@@ -16,3 +16,4 @@ app.listen(port, () => {
   console.log(`Servidor iniciado en http://localhost:${port}`);
   open(`http://localhost:${port}`); // Abre automáticamente el navegador
 });
+//
