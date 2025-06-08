@@ -112,12 +112,20 @@ export default class MovieDetailPage implements OnInit {
       return;
     }
 
+    const movieId = this.movieId();
+
     const userId = this.authService.user()?.id;
     this.movieService.deleteMovie(userId!, this.movieId()).subscribe((res) => {
+
       console.log(res);
+
+      const currentFavorites = this.movieService.favoriteMovies();
+      const updatedFavorites = currentFavorites.filter(movie => movie.id !== Number(movieId));
+      this.movieService.favoriteMovies.set(updatedFavorites);
 
       this.showModal("Éxito!", 'Película eliminada de tu lista de favoritos', 'success', 'Aceptar');
 
+      this.movieService.favoriteMovies()
       this.movieService.onMovieDetail.set(false);
       this.movieService.showingFavorites.set(false);
 

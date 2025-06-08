@@ -6,13 +6,13 @@ import { Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
-enum ErrorMessages { NotEnoughData, PasswordsDontMatch, EmailInvalid, None }
 
 const errorTypes = {
     'NotEnoughData' : 'Faltan datos o no se han completado todos los campos',
     'PasswordsDontMatch' : 'Las contraseñas no coinciden',
     'EmailInvalid' : 'Email inválido',
-    'ServerError' : 'Fallo interno del servidor de datos'
+    'ServerError' : 'Fallo interno del servidor de datos',
+    'EmailAlreadyExists' : 'El email ya está registrado',
 };
 
 /**
@@ -73,17 +73,29 @@ export class RegisterMenu {
             return;
         }
 
-        this.authService.register({username, password, email}).subscribe(registered => {
+        this.authService.register({username, password, email}).subscribe({
+          next:(registered) => {
             if (registered) {
                 this.router.navigate(['/login']);
                 console.log('Registro exitoso!');
                 this.isPosting.set(false);
                 this.hasError.set(false);
             } else {
-                console.log('Register fallido!');
-                this.errorMessage.set(errorTypes['ServerError']);
+              console.log('Registro fallido sin error HTTP');
+              this.errorMessage.set(errorTypes['ServerError']);
+              this.activateError();
+            }
+          },
+          error: (err) => {
+            this.isPosting.set(false);
+            this.hasError.set(true);
+
+            if(err.status === 409){
+                console.error('El email ya está registrado');
+                this.errorMessage.set(errorTypes['EmailAlreadyExists']);
                 this.activateError();
             }
+          }
         });
     }
 
